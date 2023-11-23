@@ -56,9 +56,10 @@ public class Livro {
 		this.ano = ano;
 	}
 
-	public boolean ano_da_publicacao_maior_que_o_ano_atual(String anoPublicacao) {
+	public boolean ano_da_publicacao_menor_ou_igual_ao_ano_atual(String anoPublicacao) {
 		DateTimeFormatter fmt = DateTimeFormat.forPattern("YYYY");
 		DateTime dt1 = fmt.parseDateTime(anoPublicacao);
+		dt1.getYear();//é possivel obter o ano direto da data.
 		if (dt1.isBeforeNow() || dt1.isEqualNow()) {
 			logger.info(">>>>>> ano da publicacao valido");
 			return true;
